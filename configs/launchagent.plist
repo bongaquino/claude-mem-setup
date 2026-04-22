@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Setup:
+    1. Replace YOUR_USERNAME (run: whoami)
+    2. Replace /usr/local/bin/node with your node path (run: which node)
+    3. Copy to ~/Library/LaunchAgents/ai.claudemem.worker.plist
+    4. Run: launchctl load ~/Library/LaunchAgents/ai.claudemem.worker.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>ai.claudemem.worker</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/node</string>
+    <string>/Users/YOUR_USERNAME/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/YOUR_USERNAME/.claude-mem/logs/worker.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/YOUR_USERNAME/.claude-mem/logs/worker-error.log</string>
+</dict>
+</plist>
